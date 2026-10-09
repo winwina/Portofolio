@@ -1,0 +1,186 @@
+/* ============================================
+   Navbar
+   ============================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  transition: background var(--dur-mid) var(--ease-out),
+    border-color var(--dur-mid) var(--ease-out),
+    backdrop-filter var(--dur-mid) var(--ease-out);
+  border-bottom: 1px solid transparent;
+}
+
+.navbar.is-scrolled {
+  background: rgba(6, 7, 13, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.navbar__inner {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand / logo */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text-100);
+  letter-spacing: -0.01em;
+}
+
+.brand__mark {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  font-size: 0.95rem;
+  color: #0a0c16;
+  background: var(--grad-accent);
+  box-shadow: 0 6px 20px -6px var(--accent-glow);
+}
+
+.brand__name span {
+  color: var(--accent);
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.nav-links a {
+  position: relative;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--text-300);
+  padding: 0.55rem 0.95rem;
+  border-radius: var(--radius-pill);
+  transition: color var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--grad-accent);
+  transition: width var(--dur-fast) var(--ease-out);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text-100);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 22px;
+}
+
+.nav-cta {
+  margin-left: 0.75rem;
+  padding: 0.6rem 1.25rem !important;
+  font-size: 0.88rem !important;
+}
+
+/* Mobile toggle */
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--border-soft);
+  background: var(--surface);
+  position: relative;
+}
+
+.nav-toggle span,
+.nav-toggle span::before,
+.nav-toggle span::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 20px;
+  height: 2px;
+  background: var(--text-100);
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: transform var(--dur-fast) var(--ease-out),
+    opacity var(--dur-fast) var(--ease-out);
+}
+
+.nav-toggle span { top: 50%; margin-top: -1px; }
+.nav-toggle span::before { top: -7px; }
+.nav-toggle span::after { top: 7px; }
+
+.nav-toggle.is-open span { background: transparent; }
+.nav-toggle.is-open span::before { transform: translateX(-50%) translateY(7px) rotate(45deg); }
+.nav-toggle.is-open span::after  { transform: translateX(-50%) translateY(-7px) rotate(-45deg); }
+
+/* Responsive */
+@media (max-width: 860px) {
+  .nav-toggle { display: block; }
+
+  .nav-links {
+    position: fixed;
+    inset: var(--nav-height) 0 auto 0;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1.25rem clamp(1.25rem, 4vw, 2.5rem) 1.75rem;
+    background: rgba(8, 10, 20, 0.92);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border-soft);
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform var(--dur-mid) var(--ease-out),
+      opacity var(--dur-mid) var(--ease-out);
+  }
+
+  .nav-links.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+  }
+
+  .nav-links a::after { display: none; }
+
+  .nav-cta {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+}

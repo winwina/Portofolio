@@ -1,0 +1,87 @@
+/* ============================================
+   Animated gradient background + particles
+   ============================================ */
+
+.bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% -10%, #141a30 0%, var(--bg-900) 55%);
+}
+
+/* Drifting color orbs */
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+.bg-orb--1 {
+  width: 46vw;
+  height: 46vw;
+  top: -10%;
+  left: -8%;
+  background: radial-gradient(circle, rgba(124, 134, 255, 0.9), transparent 70%);
+  animation: gradientDrift 18s var(--ease-smooth) infinite;
+}
+
+.bg-orb--2 {
+  width: 40vw;
+  height: 40vw;
+  top: 20%;
+  right: -10%;
+  background: radial-gradient(circle, rgba(192, 132, 252, 0.75), transparent 70%);
+  animation: gradientDrift2 22s var(--ease-smooth) infinite;
+}
+
+.bg-orb--3 {
+  width: 38vw;
+  height: 38vw;
+  bottom: -15%;
+  left: 25%;
+  background: radial-gradient(circle, rgba(58, 214, 199, 0.6), transparent 70%);
+  animation: gradientDrift 26s var(--ease-smooth) infinite reverse;
+}
+
+/* Subtle grid overlay */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(circle at 50% 30%, #000 0%, transparent 75%);
+  -webkit-mask-image: radial-gradient(circle at 50% 30%, #000 0%, transparent 75%);
+}
+
+/* Noise/vignette finishing */
+.bg-vignette {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, transparent 55%, rgba(2, 3, 8, 0.85) 100%);
+}
+
+/* Particle layer (JS-populated) */
+.particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  bottom: -10px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px 1px var(--accent-glow);
+  animation: particleRise linear infinite;
+}

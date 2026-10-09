@@ -1,0 +1,66 @@
+/* ============================================
+   Design Tokens — Wina Wulansari Portfolio
+   Dark modern developer-style theme
+   ============================================ */
+
+:root {
+  /* Core palette */
+  --bg-900: #06070d;
+  --bg-800: #0a0c16;
+  --bg-700: #10131f;
+  --surface: rgba(20, 24, 38, 0.55);
+  --surface-strong: rgba(26, 31, 48, 0.78);
+  --border-soft: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(124, 134, 255, 0.35);
+
+  /* Accent colors (soft glow) */
+  --accent: #7c86ff;
+  --accent-2: #3ad6c7;
+  --accent-3: #c084fc;
+  --accent-glow: rgba(124, 134, 255, 0.45);
+  --accent-2-glow: rgba(58, 214, 199, 0.4);
+
+  /* Text */
+  --text-100: #f5f7ff;
+  --text-200: #c7ccdd;
+  --text-300: #8b92ad;
+  --text-400: #5c6279;
+
+  /* Gradients */
+  --grad-accent: linear-gradient(120deg, #7c86ff 0%, #c084fc 50%, #3ad6c7 100%);
+  --grad-text: linear-gradient(120deg, #c7ccdd 0%, #ffffff 40%, #7c86ff 100%);
+
+  /* Typography */
+  --font-sans: "Space Grotesk", "Inter", system-ui, -apple-system, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.75rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
+  --space-2xl: 8rem;
+
+  /* Radius */
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+
+  /* Effects */
+  --shadow-soft: 0 20px 60px -20px rgba(0, 0, 0, 0.7);
+  --shadow-glow: 0 0 40px -8px var(--accent-glow);
+  --blur-glass: 18px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 0.25s;
+  --dur-mid: 0.5s;
+  --dur-slow: 0.9s;
+
+  /* Layout */
+  --max-width: 1180px;
+  --nav-height: 76px;
+}

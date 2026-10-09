@@ -1,0 +1,95 @@
+/* ============================================
+   Keyframes & Scroll-reveal utilities
+   ============================================ */
+
+/* Animated gradient background drift */
+@keyframes gradientDrift {
+  0%   { transform: translate3d(-6%, -4%, 0) scale(1); }
+  50%  { transform: translate3d(6%, 4%, 0) scale(1.15); }
+  100% { transform: translate3d(-6%, -4%, 0) scale(1); }
+}
+
+@keyframes gradientDrift2 {
+  0%   { transform: translate3d(5%, 3%, 0) scale(1.1); }
+  50%  { transform: translate3d(-5%, -5%, 0) scale(1); }
+  100% { transform: translate3d(5%, 3%, 0) scale(1.1); }
+}
+
+/* Floating UI effect */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-16px); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-22px) rotate(2deg); }
+}
+
+/* Soft pulsing glow */
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
+}
+
+/* Typewriter caret blink */
+@keyframes caretBlink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+/* Shine sweep across cards */
+@keyframes shine {
+  0%   { transform: translateX(-120%) skewX(-18deg); }
+  100% { transform: translateX(220%) skewX(-18deg); }
+}
+
+/* Rotating conic ring */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Rising particle drift */
+@keyframes particleRise {
+  0%   { transform: translateY(0) scale(1); opacity: 0; }
+  10%  { opacity: 0.8; }
+  90%  { opacity: 0.6; }
+  100% { transform: translateY(-120vh) scale(0.4); opacity: 0; }
+}
+
+/* Entrance for hero elements */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Scroll reveal ---- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+  will-change: opacity, transform;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal-delay="1"] { transition-delay: 0.1s; }
+[data-reveal-delay="2"] { transition-delay: 0.2s; }
+[data-reveal-delay="3"] { transition-delay: 0.3s; }
+[data-reveal-delay="4"] { transition-delay: 0.4s; }
+[data-reveal-delay="5"] { transition-delay: 0.5s; }
+
+/* Staggered hero entrance helper */
+.animate-in {
+  opacity: 0;
+  animation: fadeUp 0.9s var(--ease-out) forwards;
+}
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.45s; }
+.delay-4 { animation-delay: 0.6s; }
+.delay-5 { animation-delay: 0.75s; }
+.delay-6 { animation-delay: 0.9s; }

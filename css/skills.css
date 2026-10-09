@@ -1,0 +1,170 @@
+/* ============================================
+   Skills section
+   ============================================ */
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+/* ---- Skill category card ---- */
+.skill-card {
+  position: relative;
+  padding: 1.8rem;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  backdrop-filter: blur(var(--blur-glass));
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+  overflow: hidden;
+  transition: transform var(--dur-mid) var(--ease-out),
+    border-color var(--dur-mid) var(--ease-out),
+    box-shadow var(--dur-mid) var(--ease-out);
+}
+
+/* Soft glow blob that follows the card on hover */
+.skill-card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(130deg, transparent 40%, var(--accent) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--dur-mid) var(--ease-out);
+  pointer-events: none;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--border-glow);
+  box-shadow: var(--shadow-glow);
+}
+
+.skill-card:hover::after {
+  opacity: 1;
+}
+
+/* Card header */
+.skill-card__head {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.skill-card__icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  color: var(--accent);
+  background: rgba(124, 134, 255, 0.12);
+  border: 1px solid var(--border-soft);
+  transition: transform var(--dur-mid) var(--ease-out),
+    color var(--dur-mid) var(--ease-out);
+}
+
+.skill-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.skill-card:hover .skill-card__icon {
+  transform: rotate(-6deg) scale(1.08);
+  color: var(--accent-2);
+}
+
+.skill-card__title {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  margin-right: auto;
+}
+
+.skill-card__count {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-400);
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-soft);
+}
+
+/* ---- Individual skill + progress bar ---- */
+.skill-card__list {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.skill__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.skill__name {
+  font-family: var(--font-sans);
+  font-size: 0.94rem;
+  color: var(--text-100);
+}
+
+.skill__pct {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--text-300);
+  font-variant-numeric: tabular-nums;
+}
+
+.skill__track {
+  position: relative;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.skill__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: var(--grad-accent);
+  background-size: 200% 100%;
+  box-shadow: 0 0 12px -2px var(--accent-glow);
+  /* width is animated from 0% to data-level by JS */
+  transition: width 1.1s var(--ease-out);
+}
+
+/* Shimmer sweep along the filled bar */
+.skill__fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: translateX(-100%);
+}
+
+.skill-card:hover .skill__fill::after {
+  animation: shine 1.1s var(--ease-out);
+}
+
+/* Responsive */
+@media (max-width: 760px) {
+  .skills__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portofolio personal Wina Wulansari — Guru Informatika asal Tasikmalaya. Pembelajar sepanjang hayat yang memadukan teknologi dan pendidikan."
+    />
+    <meta name="author" content="Wina Wulansari" />
+    <meta name="theme-color" content="#06070d" />
+
+    <title>Wina Wulansari — Guru Informatika</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <!-- Animated gradient background layers -->
+    <div class="bg-canvas" aria-hidden="true">
+      <div class="bg-orb bg-orb--1"></div>
+      <div class="bg-orb bg-orb--2"></div>
+      <div class="bg-orb bg-orb--3"></div>
+    </div>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-vignette" aria-hidden="true"></div>
+
+    <!-- Component mount points -->
+    <div id="navbar-root"></div>
+
+    <main>
+      <div id="hero-root"></div>
+      <div id="about-root"></div>
+      <div id="skills-root"></div>
+    </main>
+
+    <!-- Scripts (classic, works via file:// too) -->
+    <!-- 1. Data -->
+    <script src="js/config.js"></script>
+    <!-- 2. Components -->
+    <script src="components/navbar.js"></script>
+    <script src="components/hero.js"></script>
+    <script src="components/about.js"></script>
+    <script src="components/skills.js"></script>
+    <!-- 3. Behaviors -->
+    <script src="js/background.js"></script>
+    <script src="js/typewriter.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/scroll.js"></script>
+    <!-- 4. Entry point -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
